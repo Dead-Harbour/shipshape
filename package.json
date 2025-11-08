@@ -3,7 +3,7 @@
     "description": "Common helper functions and configs.",
     "license": "MIT",
     "name": "@syren-dev-tech/concauses",
-    "packageManager": "yarn@4.9.1",
+    "packageManager": "yarn@4.11.0",
     "type": "module",
     "version": "0.1.0",
     "files": [
