@@ -1,9 +1,7 @@
 import eslint from '@eslint/js';
 import globals from 'globals';
 import tseslint, { ConfigWithExtends } from 'typescript-eslint';
-import stylisticJs from '@stylistic/eslint-plugin-js';
-import stylisticTs from '@stylistic/eslint-plugin-ts';
-import stylisticJsx from '@stylistic/eslint-plugin-jsx';
+import stylistic from '@stylistic/eslint-plugin';
 // @ts-expect-error JavaScript import
 import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
 import react from 'eslint-plugin-react';
@@ -28,9 +26,7 @@ const eslintPossibleProblems: ConfigWithExtends = {
 
 const eslintStylistic: ConfigWithExtends = {
     plugins: {
-        '@stylistic/js': stylisticJs,
-        '@stylistic/jsx': stylisticJsx,
-        '@stylistic/ts': stylisticTs
+        '@stylistic': stylistic
     },
     rules: {
         'array-bracket-newline': ['warn', { minItems: 3 }],
@@ -169,72 +165,6 @@ export function typescriptConfig() {
         ...tseslint.configs.strict,
         ...tseslint.configs.stylistic
     );
-}
-
-const defaultRules = {
-    ...eslint.configs.recommended,
-    ...eslintPossibleProblems.rules,
-    ...eslintSuggestions.rules,
-    ...eslintStylistic.rules,
-    ...tseslint.configs.strict,
-    ...tseslint.configs.stylistic
-};
-
-export function electronViteConfig() {
-    return [
-        {
-            ignores: [
-                '**/*.config.js',
-                'out',
-                'dist'
-            ]
-        },
-        {
-            files: ['src/main/**/*.ts'],
-            languageOptions: {
-                globals: {
-                    ...globals.node
-                }
-            },
-            rules: defaultRules
-        },
-        {
-            files: ['src/preload/**/*.js'],
-            languageOptions: {
-                globals: {
-                    ...globals.browser
-                }
-            },
-            rules: defaultRules
-        },
-        {
-            files: ['src/renderer/**/*.js'],
-            languageOptions: {
-                globals: {
-                    ...globals.browser
-                }
-            },
-            rules: defaultRules
-        },
-        {
-            files: ['src/renderer/**/*.jsx'],
-            languageOptions: {
-                ...reactRecommended.languageOptions,
-                globals: {
-                    ...globals.browser
-                }
-            },
-            plugins: {
-                react
-            },
-            rules: {
-                ...defaultRules,
-                ...reactRecommended.rules,
-                'react/prop-types': 'off',
-                'react/react-in-jsx-scope': 'off'
-            }
-        }
-    ];
 }
 
 export function reactViteConfig() {
