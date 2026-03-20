@@ -3,9 +3,9 @@
     "description": "Common helper functions and configs.",
     "license": "MIT",
     "name": "@syren-dev-tech/concauses",
-    "packageManager": "yarn@4.11.0",
+    "packageManager": "yarn@4.13.0",
     "type": "module",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "files": [
         "dist"
     ],
@@ -32,18 +32,18 @@
         }
     },
     "dependencies": {
-        "@eslint/js": "^9.39.1",
-        "@stylistic/eslint-plugin": "^5.5.0",
+        "@eslint/js": "^9.39.4",
+        "@stylistic/eslint-plugin": "^5.10.0",
         "eslint-plugin-react": "^7.37.5",
-        "globals": "^16.5.0",
-        "typescript-eslint": "^8.46.3"
+        "globals": "^17.4.0",
+        "typescript-eslint": "^8.57.1"
     },
     "devDependencies": {
-        "@types/node": "^24.10.0",
-        "eslint": "^9.39.1",
+        "@types/node": "^25.5.0",
+        "eslint": "^9.39.4",
         "eslint-plugin-react-hooks": "^7.0.1",
-        "eslint-plugin-react-refresh": "^0.4.24",
-        "knip": "^5.68.0",
+        "eslint-plugin-react-refresh": "^0.5.2",
+        "knip": "^6.0.1",
         "tsc-alias": "^1.8.16",
         "tsconfig-paths": "^4.2.0",
         "typescript": "^5.9.3"

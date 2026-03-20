@@ -72,3 +72,9 @@ export default tseslint.config(
             - `"all"` - capitalize the first of each word
             - `"first"` - capitalize the first of the first word
             - `undefined` / default - no capitalization
+
+- `uniqueId()`
+    - UUID string generator
+
+- `uniqueKey(prefix)`
+    - UUID string generator with an optional prefix
