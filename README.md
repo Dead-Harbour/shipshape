@@ -2,6 +2,22 @@
 
 This is a package containing a handful of helper functions and configs I use in various projects of mine.
 
+## Yarn Config
+
+```yml
+# .yarnrc.yml
+
+nodeLinker: node-modules
+
+npmRegistries:
+  "https://npm.pkg.github.com":
+    npmAuthToken: "${GITHUB_TOKEN}"
+
+npmScopes:
+  syren-dev-tech:
+    npmRegistryServer: "https://npm.pkg.github.com"
+```
+
 ## Linter
 
 Using this package:
@@ -56,3 +72,9 @@ export default tseslint.config(
             - `"all"` - capitalize the first of each word
             - `"first"` - capitalize the first of the first word
             - `undefined` / default - no capitalization
+
+- `uniqueId()`
+    - UUID string generator
+
+- `uniqueKey(prefix)`
+    - UUID string generator with an optional prefix

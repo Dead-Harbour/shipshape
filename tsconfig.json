@@ -1,7 +1,5 @@
 {
     "compilerOptions": {
-        "baseUrl": "./",
-        "esModuleInterop": false,
         "module": "ESNext",
         "outDir": "./dist",
         "rootDir": ".",
@@ -18,8 +16,7 @@
         "allowJs": true,
         "checkJs": true,
         "isolatedModules": true,
-        "jsx": "react-jsx",
-        "moduleResolution": "node10",
+        "moduleResolution": "bundler",
         "resolveJsonModule": true,
         // Linting
         "allowSyntheticDefaultImports": true,
