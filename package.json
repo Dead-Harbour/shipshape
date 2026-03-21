@@ -5,19 +5,24 @@
     "name": "@syren-dev-tech/concauses",
     "packageManager": "yarn@4.13.0",
     "type": "module",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "files": [
         "dist"
     ],
     "exports": {
-        "./linter": {
-            "types": "./dist/lib/linter.d.ts",
-            "import": "./dist/lib/linter.js",
+        "./eslint": {
+            "types": "./dist/lib/eslint.d.ts",
+            "import": "./dist/lib/eslint.js",
             "require": null
         },
         "./numbers": {
             "types": "./dist/lib/numbers.d.ts",
             "import": "./dist/lib/numbers.js",
+            "require": null
+        },
+        "./props": {
+            "types": "./dist/lib/props.d.ts",
+            "import": "./dist/lib/props.js",
             "require": null
         },
         "./sorting": {
@@ -29,29 +34,39 @@
             "types": "./dist/lib/strings.d.ts",
             "import": "./dist/lib/strings.js",
             "require": null
+        },
+        "./stylelint": {
+            "types": "./dist/lib/stylelint.d.ts",
+            "import": "./dist/lib/stylelint.js",
+            "require": null
         }
     },
     "dependencies": {
+        "@eslint/config-helpers": "^0.5.3",
         "@eslint/js": "^9.39.4",
         "@stylistic/eslint-plugin": "^5.10.0",
+        "@stylistic/stylelint-config": "^4.0.0",
+        "@stylistic/stylelint-plugin": "^5.0.1",
         "eslint-plugin-react": "^7.37.5",
         "globals": "^17.4.0",
+        "stylelint": "^17.5.0",
+        "stylelint-config-standard": "^40.0.0",
+        "stylelint-config-standard-scss": "^17.0.0",
+        "stylelint-scss": "^7.0.0",
         "typescript-eslint": "^8.57.1"
     },
     "devDependencies": {
         "@types/node": "^25.5.0",
         "eslint": "^9.39.4",
-        "eslint-plugin-react-hooks": "^7.0.1",
-        "eslint-plugin-react-refresh": "^0.5.2",
         "knip": "^6.0.1",
+        "postcss": "^8.5.8",
         "tsc-alias": "^1.8.16",
-        "tsconfig-paths": "^4.2.0",
         "typescript": "^5.9.3"
     },
     "scripts": {
         "build": "yarn clean; tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
         "clean": "rm -rf dist",
-        "lint": "eslint lib",
+        "lint": "eslint . --fix",
         "sanity": "yarn typecheck && yarn lint && yarn knip",
         "typecheck": "tsc -p tsconfig.json --noEmit"
     }

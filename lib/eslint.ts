@@ -1,12 +1,14 @@
+import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
 import globals from 'globals';
-import tseslint, { ConfigWithExtends } from 'typescript-eslint';
-import stylistic from '@stylistic/eslint-plugin';
+import stylisticPlugin from '@stylistic/eslint-plugin';
+import tseslint from 'typescript-eslint';
+import type { ConfigWithExtends, Plugin } from '@eslint/config-helpers';
+import react from 'eslint-plugin-react';
 // @ts-expect-error JavaScript import
 import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
-import react from 'eslint-plugin-react';
 
-const eslintPossibleProblems: ConfigWithExtends = {
+const possibleProblems: ConfigWithExtends = {
     rules: {
         'array-callback-return': 'error',
         'no-await-in-loop': 'warn',
@@ -24,9 +26,9 @@ const eslintPossibleProblems: ConfigWithExtends = {
     }
 };
 
-const eslintStylistic: ConfigWithExtends = {
+const stylistic: ConfigWithExtends = {
     plugins: {
-        '@stylistic': stylistic
+        '@stylistic': stylisticPlugin as Plugin
     },
     rules: {
         'array-bracket-newline': ['warn', { minItems: 3 }],
@@ -50,7 +52,7 @@ const eslintStylistic: ConfigWithExtends = {
 const MAX_COMPLEXITY = 10;
 const MAX_DEPTH = 3;
 const MAX_NESTED_CALLBACKS = 3;
-const eslintSuggestions: ConfigWithExtends = {
+const suggestions: ConfigWithExtends = {
     rules: {
         'capitalized-comments': 'warn',
         'class-methods-use-this': 'warn',
@@ -157,11 +159,11 @@ const eslintSuggestions: ConfigWithExtends = {
 };
 
 export function typescriptConfig() {
-    return tseslint.config(
+    return defineConfig(
         eslint.configs.recommended,
-        eslintPossibleProblems,
-        eslintSuggestions,
-        eslintStylistic,
+        possibleProblems,
+        suggestions,
+        stylistic,
         ...tseslint.configs.strict,
         ...tseslint.configs.stylistic
     );

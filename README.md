@@ -18,29 +18,22 @@ npmScopes:
     npmRegistryServer: "https://npm.pkg.github.com"
 ```
 
-## Linter
+## Linters
 
-Using this package:
+### ESLint
 
-```ts
-// @ts-check
-
-import { reactViteConfig, typescriptConfig } from '@syren-dev-tech/concauses';
+```js
+import { reactViteConfig, typescriptConfig } from '@syren-dev-tech/concauses/eslint';
 
 export default [...typescriptConfig(), ...reactViteConfig()];
 ```
 
-Without this package:
+### Stylelint
 
-```ts
-import eslint from '@eslint/js';
-import tseslint from 'typescript-eslint';
+```js
+import { stylelint } from '@syren-dev-tech/concauses/stylelint';
 
-export default tseslint.config(
-    eslint.configs.recommended,
-    ...tseslint.configs.strict,
-    ...tseslint.configs.stylistic
-);
+export default { ...stylelint() };
 ```
 
 ## Numbers

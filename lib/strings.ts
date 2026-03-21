@@ -1,3 +1,4 @@
+/* eslint-disable no-magic-numbers */
 export interface PrettyOptions {
     capitalize?: 'none' | 'first' | 'all'
     splitOn?: string | RegExp
