@@ -1,12 +1,9 @@
 import { defineConfig } from 'eslint/config';
 import eslint from '@eslint/js';
-import globals from 'globals';
+import eslintReact from '@eslint-react/eslint-plugin';
 import stylisticPlugin from '@stylistic/eslint-plugin';
 import tseslint from 'typescript-eslint';
-import type { ConfigWithExtends, Plugin } from '@eslint/config-helpers';
-import react from 'eslint-plugin-react';
-// @ts-expect-error JavaScript import
-import reactRecommended from 'eslint-plugin-react/configs/recommended.js';
+import type { ConfigWithExtends } from '@eslint/config-helpers';
 
 const possibleProblems: ConfigWithExtends = {
     rules: {
@@ -28,7 +25,7 @@ const possibleProblems: ConfigWithExtends = {
 
 const stylistic: ConfigWithExtends = {
     plugins: {
-        '@stylistic': stylisticPlugin as Plugin
+        '@stylistic': stylisticPlugin
     },
     rules: {
         'array-bracket-newline': ['warn', { minItems: 3 }],
@@ -169,7 +166,7 @@ export function typescriptConfig() {
     );
 }
 
-export function reactViteConfig() {
+export function reactViteConfig(): ConfigWithExtends[] {
     return [
         {
             ignores: [
@@ -183,45 +180,8 @@ export function reactViteConfig() {
             ]
         },
         {
-            files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
-            languageOptions: {
-                ...reactRecommended.languageOptions,
-                globals: {
-                    ...globals.browser
-                }
-            },
-            settings: {
-                react: {
-                    version: 'detect'
-                }
-            }
-        },
-        {
-            files: ['**/*.{js,mjs,cjs,jsx,mjsx,ts,tsx,mtsx}'],
-            ...react.configs.flat.recommended
-        },
-        {
-            files: ['**/*.ts'],
-            rules: {
-                ...eslint.configs.recommended.rules,
-                ...reactRecommended.rules
-            }
-        },
-        {
-            files: ['**/*.tsx'],
-            languageOptions: {
-                parserOptions: {
-                    ecmaFeatures: {
-                        jsx: true
-                    }
-                }
-            },
-            rules: {
-                ...eslint.configs.recommended.rules,
-                ...reactRecommended.rules,
-                'react/prop-types': 'off',
-                'react/react-in-jsx-scope': 'off'
-            }
+            ...eslintReact.configs['recommended-typescript'],
+            files: ['**/*.ts', '**/*.tsx']
         },
         {
             files: ['**/*.{ts,tsx}'],
