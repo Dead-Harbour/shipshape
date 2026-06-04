@@ -1,4 +1,4 @@
-# CoNcauses
+# ShipShape
 
 This is a package containing a handful of helper functions and configs I use in various projects of mine.
 
