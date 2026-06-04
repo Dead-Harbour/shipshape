@@ -59,7 +59,7 @@
         "@types/node": "^25.5.0",
         "eslint": "^9.39.4",
         "knip": "^6.0.1",
-        "postcss": "^8.5.8",
+        "postcss": "^8.5.15",
         "tsc-alias": "^1.8.16",
         "typescript": "^5.9.3"
     },
