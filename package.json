@@ -60,7 +60,7 @@
         "eslint": "^9.39.4",
         "knip": "^6.0.1",
         "postcss": "^8.5.8",
-        "tsc-alias": "^1.8.16",
+        "tsc-alias": "^1.8.17",
         "typescript": "^5.9.3"
     },
     "scripts": {
