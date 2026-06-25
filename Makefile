@@ -20,6 +20,7 @@ check-published:
 	fi
 
 tag-version:
+	git fetch --tags --prune-tags
 	@set -e; \
 	if git rev-parse -q --verify "refs/tags/$(TAG)" >/dev/null 2>&1; then \
 		echo "Tag $(TAG) already exists."; \
