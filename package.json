@@ -3,9 +3,9 @@
     "description": "Common helper functions and configs.",
     "license": "MIT",
     "name": "@dead-harbour/shipshape",
-    "packageManager": "yarn@4.16.0",
+    "packageManager": "yarn@4.17.0",
     "type": "module",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "files": [
         "dist"
     ],
