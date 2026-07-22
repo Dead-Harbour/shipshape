@@ -57,7 +57,7 @@
     "devDependencies": {
         "@types/node": "^26.0.1",
         "eslint": "^10.6.0",
-        "knip": "^6.20.0",
+        "knip": "^6.29.0",
         "postcss": "^8.5.15",
         "tsc-alias": "^1.8.17",
         "typescript": "^6.0.3"
