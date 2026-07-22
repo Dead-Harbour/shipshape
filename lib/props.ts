@@ -2,6 +2,10 @@ import { uniqueKey } from './strings';
 
 type ClassName = string | number | boolean;
 
+export interface PartsProps<T> {
+    parts?: T
+}
+
 /**
  * Combines multiple class names into a single string, ensuring that only valid class names are included.
  * @param classes - An array of class names, which can be strings, numbers, booleans, or undefined.
