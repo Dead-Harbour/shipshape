@@ -4,5 +4,5 @@
  * @returns {number} A random number between min (inclusive) and max (exclusive).
  */
 export function random(min: number, max: number): number {
-    return min + Math.random() * (max - min);
+    return min + Math.random() * (max - min); // NOSONAR - Allowed use of random
 }

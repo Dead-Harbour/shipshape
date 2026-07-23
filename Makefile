@@ -1,6 +1,6 @@
 SHELL := /bin/bash
 
-.PHONY: publish check-published tag-version
+.PHONY: up-deps publish check-published tag-version
 
 PACKAGE_NAME := $(shell node -e "const pkg=require('./package.json'); process.stdout.write(pkg.name)")
 PACKAGE_VERSION := $(shell node -e "const pkg=require('./package.json'); process.stdout.write(pkg.version)")
@@ -38,4 +38,37 @@ publish: check-published
 	else \
 		$(MAKE) tag-version; \
 		echo "Tag $(TAG) is ready for release."; \
+	fi
+
+PACKAGE_JSON = node -e "const pkg = require('./package.json'); console.log(Object.keys(pkg.dependencies).join('\n'));"
+up-deps:
+	@if ! command -v jq >/dev/null 2>&1; then \
+		echo "Error: jq is required but not installed." >&2; \
+		exit 1; \
+	fi
+	@echo "Extracting dependencies from package.json..."
+	@DEPS=$$(jq -r '.dependencies // {} | keys | .[]' package.json); \
+	if [ -z "$$DEPS" ]; then \
+		echo "No dependencies found."; \
+	else \
+		for dep in $$DEPS; do \
+			echo "Upgrading $$dep..."; \
+			yarn up "$$dep"; \
+		done; \
+	fi
+
+up-devdeps:
+	@if ! command -v jq >/dev/null 2>&1; then \
+		echo "Error: jq is required but not installed." >&2; \
+		exit 1; \
+	fi
+	@echo "Extracting dev dependencies from package.json..."
+	@DEPS=$$(jq -r '.devDependencies // {} | keys | .[]' package.json); \
+	if [ -z "$$DEPS" ]; then \
+		echo "No dev dependencies found."; \
+	else \
+		for dep in $$DEPS; do \
+			echo "Upgrading $$dep..."; \
+			yarn up "$$dep"; \
+		done; \
 	fi

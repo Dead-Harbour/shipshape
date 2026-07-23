@@ -1,4 +1,4 @@
-import { Config } from 'stylelint';
+import type { Config } from 'stylelint';
 
 export function stylelint(): Config {
     return {

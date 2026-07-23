@@ -30,7 +30,7 @@ export function getClassName(...classes: (ClassName | undefined)[]) {
     if (classSet.size === 0)
         return undefined;
 
-    return Array.from(classSet).join(' ');
+    return [...classSet].join(' ');
 }
 
 /**
@@ -48,6 +48,8 @@ export function getId(prefix: string, id?: string) {
  * @param parts - An optional object of parts.
  * @returns The provided parts or an empty object.
  */
-export function getParts<T>(parts?: T): T {
-    return parts ?? {} as T;
+export function getParts<T>(parts: T): T;
+export function getParts(parts?: undefined): Record<string, never>;
+export function getParts<T>(parts?: T) {
+    return parts ?? {};
 }

@@ -5,14 +5,14 @@
     "name": "@dead-harbour/shipshape",
     "packageManager": "yarn@4.17.1",
     "type": "module",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "files": [
         "dist"
     ],
     "exports": {
-        "./eslint": {
-            "types": "./dist/lib/eslint.d.ts",
-            "import": "./dist/lib/eslint.js",
+        "./oxlint": {
+            "types": "./dist/lib/oxlint.d.ts",
+            "import": "./dist/lib/oxlint.js",
             "require": null
         },
         "./numbers": {
@@ -42,30 +42,27 @@
         }
     },
     "dependencies": {
-        "@eslint-react/eslint-plugin": "^5.10.0",
-        "@eslint/config-helpers": "^0.6.0",
-        "@eslint/js": "^10.0.1",
-        "@stylistic/eslint-plugin": "^5.10.0",
         "@stylistic/stylelint-config": "^5.0.0",
         "@stylistic/stylelint-plugin": "^5.2.1",
-        "stylelint": "^17.14.0",
+        "oxlint-tsgolint": "^7.0.2001",
+        "stylelint": "^17.14.1",
         "stylelint-config-standard": "^40.0.0",
         "stylelint-config-standard-scss": "^17.0.0",
-        "stylelint-scss": "^7.2.0",
-        "typescript-eslint": "^8.62.1"
+        "stylelint-scss": "^7.2.0"
     },
     "devDependencies": {
-        "@types/node": "^26.0.1",
-        "eslint": "^10.6.0",
+        "@types/node": "^26.1.1",
         "knip": "^6.29.0",
-        "postcss": "^8.5.15",
-        "tsc-alias": "^1.8.17",
-        "typescript": "^6.0.3"
+        "oxlint": "^1.75.0",
+        "postcss": "^8.5.22",
+        "tsc-alias": "^1.9.1",
+        "typescript": "^7.0.2"
     },
     "scripts": {
         "build": "yarn clean; tsc -p tsconfig.build.json && tsc-alias -p tsconfig.build.json",
         "clean": "rm -rf dist",
-        "lint": "eslint . --fix",
+        "lint": "oxlint . --fix && yarn lint:scss",
+        "lint:scss": "yarn stylelint '**/*.scss' --fix",
         "sanity": "yarn typecheck && yarn lint && yarn knip",
         "typecheck": "tsc -p tsconfig.json --noEmit"
     }

@@ -27,12 +27,12 @@ npmScopes:
 
 ## Linters
 
-### ESLint
+### Oxlint
 
 ```js
-import { reactViteConfig, typescriptConfig } from '@dead-harbour/shipshape/eslint';
+import { oxlintConfig } from '@dead-harbour/shipshape/oxlint';
 
-export default [...typescriptConfig(), ...reactViteConfig()];
+export default oxlintConfig();
 ```
 
 ### Stylelint
@@ -40,5 +40,5 @@ export default [...typescriptConfig(), ...reactViteConfig()];
 ```js
 import { stylelint } from '@dead-harbour/shipshape/stylelint';
 
-export default { ...stylelint() };
+export default stylelint();
 ```

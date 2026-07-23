@@ -1,4 +1,3 @@
-/* eslint-disable no-magic-numbers */
 export interface PrettyOptions {
     capitalize?: 'none' | 'first' | 'all'
     splitOn?: string | RegExp
@@ -35,13 +34,20 @@ export function prettyString(str: string, options?: PrettyOptions) {
     const spl = str.split(splitOn);
 
     switch (options?.capitalize) {
-        case 'all': return spl.map(capitalize).join(join);
-        case 'first': return [capitalize(spl[0] || ''), ...spl.slice(1)].join(join);
-        default: return spl.join(join);
+        case 'all': {
+            return spl.map(capitalize).join(join);
+        }
+        case 'first': {
+            return [capitalize(spl[0] || ''), ...spl.slice(1)].join(join);
+        }
+        default: {
+            return spl.join(join);
+        }
     }
 }
 
 const UUID_TEMPLATE = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
+const UUID_BYTES = 16
 
 /**
  * Generates a unique identifier (UUID) string based on a template.
@@ -50,10 +56,11 @@ const UUID_TEMPLATE = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx';
  */
 export function uniqueId() {
     return UUID_TEMPLATE.replaceAll(/[xy]/g, c => {
-        const r = Math.trunc(Math.random() * 16);
+        const r = Math.trunc(Math.random() * UUID_BYTES); // NOSONAR - Allowed use of random
+        // oxlint-disable-next-line no-magic-numbers
         const v = c === 'x' ? r : (r & 0x3 | 0x8);
 
-        return v.toString(16);
+        return v.toString(UUID_BYTES);
     });
 }
 

@@ -23,7 +23,7 @@ export function sortByValue<T = Sortable>(a: T, b: T) {
  * @returns A new array sorted according to the provided sorting function.
  */
 export function sortArray<T = Sortable>(arr: T[], sortFn: (a: T, b: T) => number) {
-    return arr.sort(sortFn);
+    return arr.toSorted(sortFn);
 }
 
 /**
@@ -33,5 +33,5 @@ export function sortArray<T = Sortable>(arr: T[], sortFn: (a: T, b: T) => number
  * @returns A new array of objects sorted by the specified key.
  */
 export function sortObjects<T>(arr: T[], key: keyof T) {
-    return arr.sort((a, b) => sortByValue(a[key], b[key]));
+    return arr.toSorted((a, b) => sortByValue(a[key], b[key]));
 }
