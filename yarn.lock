@@ -64,6 +64,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@csstools/css-parser-algorithms@npm:^4.0.2":
+  version: 4.0.3
+  resolution: "@csstools/css-parser-algorithms@npm:4.0.3"
+  peerDependencies:
+    "@csstools/css-tokenizer": ^4.0.3
+  checksum: 10c0/c6039525b72de70698036f4adfc5778f766c021a4086165f950d4b43ac125cd881e114ae8e25baf1c6ded02fe170fb014ecdf2fd77d5985ee0deed5b8b1e2510
+  languageName: node
+  linkType: hard
+
 "@csstools/css-syntax-patches-for-csstree@npm:^1.1.4, @csstools/css-syntax-patches-for-csstree@npm:^1.1.9":
   version: 1.1.12
   resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.12"
@@ -83,6 +92,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@csstools/css-tokenizer@npm:^4.0.2":
+  version: 4.0.3
+  resolution: "@csstools/css-tokenizer@npm:4.0.3"
+  checksum: 10c0/c9c6522aac182a306caae7974c602d7158e21594adc8521f6684f688e15021ff63c586c84ca465b97584ca4c88167f13a0733305a32f6ed5399d2c2fba04e9fc
+  languageName: node
+  linkType: hard
+
 "@csstools/media-query-list-parser@npm:^5.0.0":
   version: 5.0.0
   resolution: "@csstools/media-query-list-parser@npm:5.0.0"
@@ -90,6 +106,16 @@ __metadata:
     "@csstools/css-parser-algorithms": ^4.0.0
     "@csstools/css-tokenizer": ^4.0.0
   checksum: 10c0/dbc22654769eca02c182f3a57be02cd5b8d0b958adc8397e66770b64b0e8fcd32faa93a3f6a99e1457bde11862485de3cd83a31dac7b03925d32f9891b31ccfd
+  languageName: node
+  linkType: hard
+
+"@csstools/media-query-list-parser@npm:^5.0.2":
+  version: 5.0.3
+  resolution: "@csstools/media-query-list-parser@npm:5.0.3"
+  peerDependencies:
+    "@csstools/css-parser-algorithms": ^4.0.3
+    "@csstools/css-tokenizer": ^4.0.3
+  checksum: 10c0/6ee7896ce42c0b0e8b1ed28b98b4a07aa3526e214e6392be1a9c883d085bc2d001c27c272e5acf60511b378349249f3851a420b385d219ad0e061e94530b92f8
   languageName: node
   linkType: hard
 
@@ -115,7 +141,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@dead-harbour/shipshape@workspace:."
   dependencies:
-    "@stylistic/stylelint-config": "npm:^5.0.0"
+    "@stylistic/stylelint-config": "npm:^6.1.0"
     "@stylistic/stylelint-plugin": "npm:^5.3.0"
     "@types/node": "npm:^26.4.1"
     knip: "npm:^6.34.0"
@@ -819,18 +845,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@stylistic/stylelint-config@npm:^5.0.0":
-  version: 5.0.0
-  resolution: "@stylistic/stylelint-config@npm:5.0.0"
+"@stylistic/stylelint-config@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "@stylistic/stylelint-config@npm:6.1.0"
   dependencies:
-    "@stylistic/stylelint-plugin": "npm:^5.1.0"
+    "@stylistic/stylelint-plugin": "npm:^6.0.0"
   peerDependencies:
-    stylelint: ^17.6.0
-  checksum: 10c0/e46437a530e56c7ea09eb26462f15e806ff7cd09394fe79c7cb8a6968f0df347c6742f3cc0cf7fac493f719490da3bb6ecd265b2698efb93f1c84146d24c74f8
+    stylelint: ^18.0.0
+  checksum: 10c0/b297fb3c91b43c918a5a0b46100d4707e0950ffc858495eba8790ca6e243a76dcf3dbe5feab74c08846db087e4c71e33fb990c6771a6fb75c1be8b6f2c93173f
   languageName: node
   linkType: hard
 
-"@stylistic/stylelint-plugin@npm:^5.1.0, @stylistic/stylelint-plugin@npm:^5.3.0":
+"@stylistic/stylelint-plugin@npm:^5.3.0":
   version: 5.3.0
   resolution: "@stylistic/stylelint-plugin@npm:5.3.0"
   dependencies:
@@ -844,6 +870,23 @@ __metadata:
   peerDependencies:
     stylelint: ^17.6.0
   checksum: 10c0/9a498172b23d4e1db468db6361d54702db5c6c0493b9d56e52d3ee01161737f3ebff77668a395840e6e2f73f7e36d7b17f5ac419a4f6a337e295479d73dea879
+  languageName: node
+  linkType: hard
+
+"@stylistic/stylelint-plugin@npm:^6.0.0":
+  version: 6.0.1
+  resolution: "@stylistic/stylelint-plugin@npm:6.0.1"
+  dependencies:
+    "@csstools/css-parser-algorithms": "npm:^4.0.2"
+    "@csstools/css-tokenizer": "npm:^4.0.2"
+    "@csstools/media-query-list-parser": "npm:^5.0.2"
+    postcss: "npm:^8.5.32"
+    postcss-selector-parser: "npm:^7.1.7"
+    postcss-value-parser: "npm:^4.2.0"
+    style-search: "npm:^0.1.0"
+  peerDependencies:
+    stylelint: ^18.0.0
+  checksum: 10c0/e29f7842b1b4a1fede925e90d3c59083224d3e31470004c77e009e13f316ff8cdd82c7d6d8b4ec4bb1348dc17412f450624041b167ffa64ffbdf286dbc0d8e9a
   languageName: node
   linkType: hard
 
@@ -1811,6 +1854,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"nanoid@npm:^3.3.20":
+  version: 3.3.20
+  resolution: "nanoid@npm:3.3.20"
+  bin:
+    nanoid: bin/nanoid.cjs
+  checksum: 10c0/856e8bf3bddb959d65997bd94908be030dbc5e6ed88fb3af2a638e51d1938f4d4f454c7c7231aba340775224f88b8cfd3ce1693c70471bfd05f5b6a2227c0c1e
+  languageName: node
+  linkType: hard
+
 "node-gyp@npm:latest":
   version: 13.0.2
   resolution: "node-gyp@npm:13.0.2"
@@ -2271,6 +2323,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"postcss-selector-parser@npm:^7.1.7":
+  version: 7.2.1
+  resolution: "postcss-selector-parser@npm:7.2.1"
+  dependencies:
+    util-deprecate: "npm:^1.0.2"
+  checksum: 10c0/bb82454497a6d2c8ec302cb53fbdc5c4ca36b8874c5c1b61acc6f9a0d6699135b7de6b1852d8d57c0d3404500e14fa9995595cd5d73b3fcdf48d717c2264784c
+  languageName: node
+  linkType: hard
+
 "postcss-value-parser@npm:^4.2.0":
   version: 4.2.0
   resolution: "postcss-value-parser@npm:4.2.0"
@@ -2286,6 +2347,17 @@ __metadata:
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
   checksum: 10c0/9fe44215a6628d89c8a75184b92f5b2f77e16f9e5b13b39b9009bb7e8e6eccddf82c8854bae922db1f17ace6ef3445073fe38abff513caeb03e5285b1b55620a
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.5.32":
+  version: 8.5.33
+  resolution: "postcss@npm:8.5.33"
+  dependencies:
+    nanoid: "npm:^3.3.20"
+    picocolors: "npm:^1.1.1"
+    source-map-js: "npm:^1.2.2"
+  checksum: 10c0/8711c5ad32a798813ae52dd51024881915ecc6171030f9cc1d3766d1969da20ade4cf71a645d7e54668cb45cb9622eac938dc1ce91fe1f9a0fa5f0bc8cbaa05a
   languageName: node
   linkType: hard
 
@@ -2417,6 +2489,13 @@ __metadata:
   version: 1.2.1
   resolution: "source-map-js@npm:1.2.1"
   checksum: 10c0/7bda1fc4c197e3c6ff17de1b8b2c20e60af81b63a52cb32ec5a5d67a20a7d42651e2cb34ebe93833c5a2a084377e17455854fee3e21e7925c64a51b6a52b0faf
+  languageName: node
+  linkType: hard
+
+"source-map-js@npm:^1.2.2":
+  version: 1.2.4
+  resolution: "source-map-js@npm:1.2.4"
+  checksum: 10c0/b0fb346b142e89a19fa3299a259d8c0dc66626321634c30df260b2e8a1d4c1e219a6a28e8d10617cc54e7816d94eff5c4edd96e208172e93efc2c6fd75b111c6
   languageName: node
   linkType: hard
 

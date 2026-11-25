@@ -47,7 +47,7 @@
         }
     },
     "dependencies": {
-        "@stylistic/stylelint-config": "^5.0.0",
+        "@stylistic/stylelint-config": "^6.1.0",
         "@stylistic/stylelint-plugin": "^5.3.0",
         "stylelint": "^17.15.0",
         "stylelint-config-standard": "^40.0.0",
